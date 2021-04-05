@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="css/skeleton.css">
 -->
 <link rel="stylesheet" href="css/simple-grid.css">
+<link rel="stylesheet" href="styles.css">
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -31,21 +32,8 @@
   <style>
     [v-cloak] > * { display:none }
     [v-cloak]::before { content: "loading…" }
-    
-    .header {
-      /* margin-top: 20px; */
-    }
     .item-block {
-      border: 1px solid #efefef;
-      border-radius: 6px;
-      padding: 10px;
-    }
-    .comments {
-      background-color: #f7f7f7;
-      padding: 5px;
-      margin-top: 10px;
-      font-size: 13px;
-      font-style: italic;
+      padding: 12px;
     }
   </style>
     
@@ -60,7 +48,34 @@
     </div>
 
     <div id="app" v-cloak class="row">
-      TBD
+      <article class="col-6 col-12-sm item-block" v-for="(item, i) in data" :key="i">
+        <div class="row">
+          <div>
+            <span style="font-size: 1.375rem" class="font-heavy">
+              {{item.name}}
+            </span>
+            <a :href="item.link" 
+              style="position: absolute; right: 0"
+              target="_blank"
+            >
+              <img v-if="item.linkType == 'video'" height="24" width="80" 
+                style="margin-top:5px; margin-left:2px" 
+                src="images/youtube.png">
+              <span v-else>Текст</span>
+            </a>
+          </div>
+          <div>
+            <ul>
+              <li v-for="ing in item.ingredients">
+                {{ing.name}} - {{ing.count}}
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div v-for="note in item.notes" class="comments">"{{note}}"</div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 
@@ -74,7 +89,7 @@
         }
       },
       mounted() {
-        // axios.get('products.json').then(d => this.data = d.data);
+        axios.get('receipts.json').then(d => this.data = d.data);
       }
     }
 

@@ -1,0 +1,14 @@
+.item-block {
+    border: 1px solid #efefef;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.comments {
+    background-color: #f7f7f7;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 13px;
+    font-style: italic;
+}
