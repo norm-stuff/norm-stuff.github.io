@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "Огірки корнішони мариновані пастеризовані",
+        "brand": "Премія",
+        "rating": 1,
+        "comments": "Никакие."
+    },
+    {
+        "id": 2,
+        "title": "Pomodori Pelati Interi",
+        "brand": "De Clemente",
+        "rating": 4,
+        "comments": "Красные, не кислые"
+    }
+]
