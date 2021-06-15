@@ -61,7 +61,7 @@
               <img v-if="item.linkType == 'video'" height="24" width="80" 
                 style="margin-top:5px; margin-left:2px" 
                 src="images/youtube.png">
-              <span v-else>Текст</span>
+              <!-- <span v-if="item.linkType == 'text'">Текст</span> -->
             </a>
           </div>
           <div>
@@ -74,7 +74,7 @@
           <div>
             <div v-for="note in item.notes" class="comments">"{{note}}"</div>
           </div>
-          <div>
+          <div v-if="item.dontDo && item.dontDo.length">
             <p>Нинада</p>
             <div v-for="note in item.dontDo" class="comments">"{{note}}"</div>
           </div>
